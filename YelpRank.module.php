@@ -17,8 +17,6 @@ class YelpRank extends CMSModule
 	public function GetAuthorEmail() { return 'info@pixelsolutions.biz'; }
 	public function UninstallPreMessage() { return $this->Lang('ask_uninstall'); }
 	public function GetAdminSection() { return 'extentions'; }
-	public function GetDependencies() { return array('DesignManager'=>'1.1.9'); }
-	public function GetHelp(){return $this->Lang("help").'<style>code { background: hsl(220, 80%, 90%); }pre {font-size: 12px;white-space: pre-wrap;min-width: 50%}</style>';}
 	
 	public function InitializeFrontend() {
 		$this->RegisterModulePlugin();
@@ -31,10 +29,14 @@ class YelpRank extends CMSModule
 	
 	function SetParameters() {
 		// syntax for creating a parameter is parameter name, default value, description
-		$this->CreateParameter('biz', '', $this->Lang('param_biz'));
+		$this->CreateParameter('biz', '', $this->Lang('help_biz'));
 		$this->CreateParameter('action', 'default', $this->Lang('help_action'));
-		$this->CreateParameter('field', '', 'Used to display a single value into your template');
+		$this->CreateParameter('field', '', $this->Lang('help_field'));
+		$this->CreateParameter('template', '', $this->Lang('help_template'));
 	  }
+	
+	public function GetHelp(){return $this->Lang("help").'<style>code { background: hsl(220, 80%, 90%); }pre {font-size: 12px;white-space: pre-wrap;min-width: 50%}</style>';}
+	public function GetDependencies() { return array('DesignManager'=>'1.1.9'); }
 	
 	public static function reset_page_type_defaults(CmsLayoutTemplateType $type)
 	{

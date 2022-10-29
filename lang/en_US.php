@@ -2,7 +2,6 @@
 $lang['friendlyname'] = 'Yelp Rank';
 $lang['admindescription'] = 'A module for retrieving Yelp data';
 $lang['ask_uninstall'] = 'Are you sure you want to uninstall the YelpRank module?';
-$lang['param_biz'] = 'id or alias of the business to look up. You can find the Yelp Business ID in the URL for the business page. The ID appears after www.yelp.com/biz/ in the address bar, and is generally composed of the name and location of the business separated by dashes. For example, the ID in the following URL is "yelp-san-francisco": www.yelp.com/biz/yelp-san-francisco';
 $lang['admin_api_key'] = "Your Yelp API Key";
 $lang['error_notfound'] = 'The Business specified could not be displayed';
 $lang['error_api'] = 'Please provide your API key.';
@@ -24,30 +23,11 @@ $lang['type_YelpRank'] = 'YelpRank';
 $lang['type_Detail'] = 'Detail';
 $lang['type_Reviews'] = 'Reviews';
 
-$lang['help_dir'] = 'Parameter to specify a directory, relative to uploads/images/Gallery/';
-$lang['help_action'] = 'Override the default action. Use it in combination with the above parameters. Possible values are:
+$lang['help_biz'] = 'id or alias of the business to look up. You can find the Yelp Business ID in the URL for the business page. The ID appears after www.yelp.com/biz/ in the address bar, and is generally composed of the name and location of the business separated by dashes. For example, the ID in the following URL is "yelp-san-francisco": www.yelp.com/biz/yelp-san-francisco<br><br>';
+$lang['help_action'] = 'Override the default action. Possible values are:
 <ul>
-<li>\'<strong>default</strong>\' - to display a set of random thumb-images (applies only to the images which are stored in the database, defaults to a number of 6 images). Use \'/*\' after the directoryname in the dir parameter to include images from subdirectories</li>
-<li>\'<strong>reviews</strong>\' - to display a set of random thumb-images from the most recently added directory (applies only to the images which are stored in the database, defaults to a number of 6 images)</li>
-</ul>
-Note that images are only stored in the database when the specific gallery is visited in the admin or frontend.
-';
-
-$lang['help'] = '<h3>What does this do?</h3>
-	<p>This CMSMS YelpRank plugin lets you connect to Yelp\'s API and get profile details or reviews for a specific business alias/id</p>
-	<h3>Get started with the Yelp Fusion API:</h3>
-	<h4>Authentication</h4>
-	<p>Yelp Fusion API uses private API Keys to authenticate requests. To authenticate the call to an endpoint, there are only 2 steps:</p>
-	<ul><li>Create an app to obtain your private API Key.</li>
-	  <li>Paste your API Key into the "key" parameter</li>
-</ul> 
-For detailed instructions, refer to our <A href="https://www.yelp.com/developers/documentation/v3/authentication">authentication guide</A>.</p>
-
-<h3>How do I use it?</h3>
-	<p>Insert the tag <code>{YelpRank}</code>, together with the required parameters in your template (case sensitive) for example:</p>
-<ul>
-	<li>\'<strong>(default)</strong>\' - This endpoint returns detailed business content. Returns Template Smarty Variables.<br>
-		<code>{YelpRank key=\'Your API Key\' biz=\'gary-danko-san-francisco\'}</code><br>
+<li>\'default\' - This endpoint returns detailed business content. Returns Template Smarty Variables.<br>
+		<code>{YelpRank biz=\'gary-danko-san-francisco\'}</code><br>
 		<code>{$item->review_count} = 5296</code><br>
 		Available Template Smarty Variables (Business): <a href="#" onclick="togglecollapse(\'variablesinfo\'); return false;"><img src="themes/OneEleven/images/icons/system/info.gif" class="systemicon" alt="Available Template Smarty Variables" title="Available Template Smarty Variables"></a><br>
 		<div id="variablesinfo" style="display: none;">
@@ -120,19 +100,9 @@ For detailed instructions, refer to our <A href="https://www.yelp.com/developers
    }
 }
 </pre>
-		</div><br>
-  </li>
-	<li>\'<strong>reviews</strong>\' - This endpoint returns up to three review excerpts for a given business ordered by Yelp\'s default sort order.<br>
-		<code>{YelpRank key=\'Your API Key\' biz=\'gary-danko-san-francisco\' <strong>action="reviews"</strong>}</code><br>
-		<pre>
-{foreach from=$items item=\'review\'}
-&lt;ul&gt;
-&lt;li&gt;Date: {$review-&gt;time_created}&lt;/li&gt;
-&lt;li&gt;Rating: {$review-&gt;rating}&lt;/li&gt;
-&lt;li&gt;Text: {$review-&gt;text}&lt;/li&gt;
-&lt;/ul&gt;
-{/foreach}
-		</pre><br>
+		</div><br></li>
+<li>\'reviews\' - This endpoint returns up to three review excerpts for a given business ordered by Yelp\'s default sort order.<br>
+		<code>{YelpRank biz=\'gary-danko-san-francisco\' <strong>action="reviews"</strong>}</code><br>
 		Available Template Smarty Variables (Reviews): <a href="#" onclick="togglecollapse(\'variablesinfo2\'); return false;"><img src="themes/OneEleven/images/icons/system/info.gif" class="systemicon" alt="Available Template Smarty Variables" title="Available Template Smarty Variables"></a><br>
 		<div id="variablesinfo2" style="display: none;">
  			 <pre>
@@ -182,12 +152,23 @@ $items (array) = [
       .0 (string)
    ]
 }</pre>
-		</div>
-	  </li>
-	  <li>\'<strong>field</strong>\' - Used to display a single value into your template: <br>
-<code>{YelpRank key=\'Your API Key\' biz=\'gary-danko-san-francisco\' <strong>field=\'rating\'</strong>}</code> = 4.5
-</li>
-</ul>
+		</div></li>
+</ul>';
+$lang['help_field'] = 'Used to display a single value into your template<br>
+<code>{YelpRank biz=\'gary-danko-san-francisco\' <strong>field=\'rating\'</strong>}</code> = 4.5<br><br>';
+$lang['help_template'] = 'Use a separate database template. This template must exist and be visible in the Design Manager, though it does not need to be the default. If this parameter is not specified, then the default template will be used';
+$lang['help'] = '<h3>What does this do?</h3>
+	<p>This CMSMS YelpRank plugin lets you connect to Yelp\'s API and get profile details or reviews for a specific business alias/id</p>
+	<h3>Get started with the Yelp Fusion API:</h3>
+	<h4>Authentication</h4>
+	<p>Yelp Fusion API uses private API Keys to authenticate requests. To authenticate the call to an endpoint, there are only 2 steps:</p>
+	<ul><li>Create an app to obtain your private API Key.</li>
+	  <li>Paste your API Key into the "key" parameter</li>
+</ul> 
+For detailed instructions, refer to our <A href="https://www.yelp.com/developers/documentation/v3/authentication">authentication guide</A>.</p>
+
+<h3>How do I use it?</h3>
+	<p>Insert the tag <code>{YelpRank}</code>, together with the required parameters in your template (case sensitive) for example:</p>
 <hr>
 <h3>Feedback/Support</h3>
 <p>This module does not include commercial support. However, there are a number of resources available to help you with it:</p>

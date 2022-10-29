@@ -4,7 +4,7 @@
 
 {if $item->id}
 <div class="yelprank_container">
-	<h1 class="css-1se8maq">{$item->name}</h1>
+	<h2>{$item->name}</h2>
 	<div class="flex-container">
 		<div class="flex">
 			<span class="star-rating-sprite star-rating-sprite-{$item->star_css} mr16"></span>

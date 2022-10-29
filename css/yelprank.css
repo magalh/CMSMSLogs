@@ -9,7 +9,8 @@
 	min-height: 40px;
 }	
 .flex-grow1{	
-	flex-grow:1;	
+	flex-grow:1;
+	padding-left: 10px;
 }
 .star-rating-sprite {
     text-indent: -9999em;
