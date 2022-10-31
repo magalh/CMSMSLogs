@@ -32,4 +32,11 @@ catch( CmsException $e ) {
     return FALSE;
 }
 
+try {
+	$obj = CmsLayoutStylesheet::load('YelpRank');
+	$obj->delete();
+}
+catch( CmsInvalidDataException $e ) {
+    audit('',$this->GetName(),'Uninstall Error: '.$e->GetMessage());
+}
 ?>

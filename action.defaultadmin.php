@@ -11,5 +11,4 @@ $smarty->assign('yelp_api',$this->GetPreference('yelprank_api'));
 	 $this->SetMessage("Saved");
 	 $this->RedirectToAdminTab();	
 	}
-
 ?>
