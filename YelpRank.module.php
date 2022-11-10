@@ -13,8 +13,8 @@ class YelpRank extends CMSModule
 	public function IsPluginModule() { return TRUE; }
 	public function HasAdmin() { return TRUE; }
 	public function VisibleToAdminUser() { return $this->CheckPermission(self::MANAGE_PERM); }
-	public function GetAuthor() { return 'Pixel Solutions'; }
-	public function GetAuthorEmail() { return 'info@pixelsolutions.biz'; }
+	public function GetAuthor() { return 'Magal Hezi'; }
+	public function GetAuthorEmail() { return 'h_magal@hotmail.com'; }
 	public function UninstallPreMessage() { return $this->Lang('ask_uninstall'); }
 	public function GetAdminSection() { return 'extentions'; }
 	
