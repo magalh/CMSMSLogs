@@ -1,7 +1,7 @@
 <?php
 $lang['friendlyname'] = 'Yelp Rank';
 $lang['admindescription'] = 'Un modulo for ricavare dettagli da Yelp';
-$lang['ask_uninstall'] = 'Sei sicuro che vuoi disinstallare YelpRank?';
+$lang['ask_uninstall'] = 'Sei sicuro che vuoi disinstallare CMSMSLogs?';
 $lang['admin_api_key'] = "Il tuo Yelp API Key";
 $lang['error_notfound'] = 'Il profile richiesto non e\' stato trovato';
 $lang['error_api'] = 'API key necessario';
@@ -19,7 +19,7 @@ $lang['cancel'] = 'Annulla';
 $lang['delete'] = 'Elimina';
 $lang['prompt_email'] = 'Indirizzo Email';
 $lang['reviews'] = 'Recensioni';
-$lang['type_YelpRank'] = 'YelpRank';
+$lang['type_CMSMSLogs'] = 'CMSMSLogs';
 $lang['type_Detail'] = 'Dettagli';
 $lang['type_Reviews'] = 'Recensioni';
 ?>

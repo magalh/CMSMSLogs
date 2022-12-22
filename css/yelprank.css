@@ -1,5 +1,5 @@
-[[$theme_url = "[[root_url]]/modules/YelpRank" scope='global']]
-.yelprank_container h1 {
+[[$theme_url = "[[root_url]]/modules/CMSMSLogs" scope='global']]
+.CMSMSLogs_container h1 {
 	font-size: 46px;
 	line-height: 54px;
 }
