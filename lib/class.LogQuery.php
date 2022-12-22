@@ -45,8 +45,10 @@ class LogQuery
 
                 $pattern = "~PHP\ message:.*?on\ line \d+~";
                 preg_match_all($pattern, $message[1], $matches);
-                
-                foreach ($matches[0] as $matche){
+
+                if (preg_match_all($pattern, $message[1], $matches)) {
+
+                    foreach ($matches[0] as $matche){
 
                     $originalerror = $matche;
                     // Get the type of the error
@@ -104,6 +106,7 @@ class LogQuery
                         'stackTrace' => []
                     ];
 
+                }
                 }
 
             } // Stack trace beginning line
