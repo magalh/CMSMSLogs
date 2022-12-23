@@ -1,7 +1,7 @@
 <h3>Get started with CMSMS Logs:</h3>
 {form_start}
 <div class="pageoverflow">
- <p class="pagetext">{$mod->Lang('logfilepath')}:</p>
+ <p class="pagetext">{$mod->Lang('logfilepath')}:<br>{$root_path}</p>
  <p class="pageinput">
 <input type="text" name="{$actionid}logfilepath" value="{$logfilepath}" size="100" maxlength="255"/>
  </p>

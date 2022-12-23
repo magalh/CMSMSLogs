@@ -1,5 +1,4 @@
 <?php
-
 class CMSMSLogs extends CMSModule
 {
 	const MANAGE_PERM = 'manage_CMSMSLogs';
@@ -27,6 +26,24 @@ class CMSMSLogs extends CMSModule
 	public function GetHelp() { return @file_get_contents(__DIR__.'/doc/help.inc'); }
 	public function GetChangeLog() { return @file_get_contents(__DIR__.'/doc/changelog.inc'); }
 
+	public function getLineIcon($type){
+		$themeObject = cms_utils::get_theme_object();
+        $icon = '';
+        switch($type){
+            case 'WARN':
+                $icon = $themeObject->DisplayImage('icons/system/warning.gif', 'warning', '', '', 'systemicon');
+            break;
+            case 'INFO':
+                $icon = $themeObject->DisplayImage('icons/system/info.gif', 'info', '', '', 'systemicon');
+            break;
+            case 'ERROR':
+                $icon = $themeObject->DisplayImage('icons/system/stop.gif', 'stop', '', '', 'systemicon');
+            break;
+            default:
+                $icon = '';
+        }
+        return $icon;
+	}
 }
 
 ?>

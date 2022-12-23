@@ -10,18 +10,16 @@
     <th>{$mod->Lang('message')}</th>
     <th>{$mod->Lang('file')}</th>
     <th>{$mod->Lang('line')}</th>
-    <th class="pageicon">{* edit icon *}</th>
     </tr>
     </thead>
     <tbody>
     {foreach $logs as $log}
-    <tr>
-    <td>{$log["dateTime"]|date_format:'%x'}</td>
-    <td>{$log["type"]}</td>
-    <td>{$log["message"]}</td>
-    <td>{$log["file"]}</td>
-    <td>{$log["line"]}</td>
-    <td>{admin_icon icon='edit.gif'}</td>
+    <tr class="{cycle values='row1,row2'}">
+    <td>{$log->created|date_format:'%x'}</td>
+    <td>{$mod->getLineIcon($log->type)}</td>
+    <td>{$log->description}</td>
+    <td>{$log->file}</td>
+    <td>{$log->line}</td>
     </tr>
     {/foreach}
     </tbody>

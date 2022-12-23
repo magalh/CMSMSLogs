@@ -16,6 +16,7 @@ if(!isset($logfilepath) || $logfilepath == ''){
 }
 
 $smarty->assign('logfilepath',$logfilepath);
+$smarty->assign('root_path',CMS_ROOT_PATH);
 $tpl->display();
 
 
